@@ -2,7 +2,6 @@ import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserController {
-  // eslint-disable-next-line class-methods-use-this
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
@@ -29,7 +28,6 @@ class UserController {
     return res.json({ id, name, email });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   async update(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string(),
@@ -53,8 +51,7 @@ class UserController {
 
     const user = await User.findByPk(req.userId);
 
-    // eslint-disable-next-line eqeqeq
-    if (email != user.email) {
+    if (email && email !== user.email) {
       const userExists = await User.findOne({ where: { email } });
 
       if (userExists) {
@@ -66,9 +63,9 @@ class UserController {
       return res.status(401).json({ error: 'Password does not match' });
     }
 
-    const { id, name } = await user.update(req.body);
+    const { id, name, email: userEmail } = await user.update(req.body);
 
-    return res.json({ id, name, email });
+    return res.json({ id, name, email: userEmail });
   }
 }
 
