@@ -1,4 +1,4 @@
-# API MeetApp ![logo](iconmeetapp.jpg)
+# API MeetApp <img src="./iconmeetapp.jpg" alt="logo" width="40" height="40">
 ## API da aplicação MeetApp desenvolvida em NodeJs como desafio durante o Bootcamp GoStack da Rocketseat. Um app agregador de eventos para desenvolvedores (por isso o nome MeetApp, um acrônimo à Meetup + App).
 ### Esta API foi feita para ser consumida pelo front-end WEB e Mobile.
 Para a aplicação funcionar, siga os passos:
